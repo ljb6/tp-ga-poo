@@ -1,3 +1,4 @@
+
 #ifndef INVENTARIO_H
 #define INVENTARIO_H
 
@@ -9,6 +10,8 @@ using namespace std;
 enum Itens {
     Espada,
     Cajado,
+    Armadura_de_Couro,
+    Roupa_magica
 };
 
 class Inventario {
