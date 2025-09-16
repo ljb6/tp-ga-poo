@@ -2,9 +2,9 @@
 #define TA_POO_LUTADOR_H
 
 #include <iostream>
-
 #include "Inventario.h"
 #include "Personagem.h"
+#include <vector>
 
 using namespace std;
 
@@ -13,12 +13,11 @@ public:
     Lutador();
     ~Lutador();
 
-    void adicionarItensIniciais(vector<Itens> itens_);
-
+    void adicionarItensIniciais(const vector<Itens>& itens);
     Inventario inventario_;
+
 private:
 
 };
 
-
-#endif //TA_POO_LUTADOR_H
+#endif // TA_POO_LUTADOR_H
