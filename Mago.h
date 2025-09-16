@@ -4,9 +4,11 @@
 
 #ifndef TA_POO_MAGO_H
 #define TA_POO_MAGO_H
+
+#include <iostream>
 #include "Inventario.h"
 #include "Personagem.h"
-
+#include <vector>
 
 using namespace std;
 
@@ -15,9 +17,11 @@ public:
     Mago();
     ~Mago();
 
-private:
+    void adicionarItensIniciais(const vector<Itens>& itens);
     Inventario inventario_;
+
+private:
+
 };
 
-
-#endif //TA_POO_MAGO_H
+#endif // TA_POO_MAGO_H
