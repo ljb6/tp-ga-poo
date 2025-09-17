@@ -8,13 +8,6 @@
 
 using namespace std;
 
-enum Itens {
-    Espada,
-    Cajado,
-    Armadura_de_Couro,
-    Roupa_magica
-};
-
 class Inventario {
 public:
     Inventario();
