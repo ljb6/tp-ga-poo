@@ -37,6 +37,10 @@ void Jogo::setPersonagem() {
     personagem_->setarNome(nome_);
     personagem_->distribuirAtributos();
 
+    cout << "Invetário: " << endl;
+
+
+
     lerCena();
 }
 

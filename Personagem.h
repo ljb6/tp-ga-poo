@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 
+#include "Inventario.h"
+
 using namespace std;
 
 class Personagem {
@@ -22,6 +24,10 @@ private:
     int sorte = 6;
 
     void mostrarAtributos();
+
+protected:
+    Inventario inventario_;
+
 };
 
 #endif

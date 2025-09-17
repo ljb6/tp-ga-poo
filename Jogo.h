@@ -23,7 +23,6 @@ public:
 
 private:
     Personagem *personagem_;
-    Inventario inventario_;
 
     void lerCena();
     vector<int> cenas_visitadas;

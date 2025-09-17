@@ -16,4 +16,6 @@ add_executable(TA_POO main.cpp
         Jogo.h
         Mago.cpp
         Mago.h
+        Item.cpp
+        Item.h
 )

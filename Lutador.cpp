@@ -4,17 +4,19 @@
 
 #include "Lutador.h"
 
-Lutador::Lutador() : Personagem() {
-    vector<Itens> itens_iniciais = { Espada, ArmaduraDeCouro };
-    adicionarItensIniciais(itens_iniciais);
+Lutador::Lutador() {
+    inicializarItens();
 }
 
-Lutador::~Lutador() {}
+Lutador::~Lutador() {
 
-void Lutador::adicionarItensIniciais(const vector<Itens>& itens) {
-    for(const auto& item : itens) {
-        inventario_.adicionarItem(item); 
-    }
 }
+
+void Lutador::inicializarItens() {
+    inventario_.adicionarItem(
+        Item("Espada Longa", 5, TipoItem::Espada));
+}
+
+
 
 

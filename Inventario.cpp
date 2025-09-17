@@ -12,16 +12,12 @@ Inventario::~Inventario() {
 
 }
 
-void Inventario::adicionarItem(Itens item_) {
+void Inventario::adicionarItem(Item item_) {
     itens.push_back(item_);
 }
 
-
 void Inventario::mostrarInventario() {
-    cout << "Você possui os seguintes itens:" << endl;
-    cout << "[";
     for (auto i : itens) {
-        cout << i;
+        cout << i.getNome();
     }
-    cout << "]";
 }

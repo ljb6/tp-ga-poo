@@ -1,9 +1,10 @@
-
 #ifndef INVENTARIO_H
 #define INVENTARIO_H
 
 #include <iostream>
 #include <vector>
+
+#include "Item.h"
 
 using namespace std;
 
@@ -20,11 +21,11 @@ public:
     ~Inventario();
 
     void mostrarInventario();
-    void adicionarItem(Itens item_);
-    void removerItem();
+    void adicionarItem(Item item_);
+    //void removerItem();
 
 private:
-    vector<Itens> itens;
+    vector<Item> itens;
 };
 
 #endif
