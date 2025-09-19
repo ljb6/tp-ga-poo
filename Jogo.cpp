@@ -35,11 +35,10 @@ void Jogo::setPersonagem() {
     string nome_; cin >> nome_;
 
     personagem_->setarNome(nome_);
-    personagem_->distribuirAtributos();
-
-    cout << "Invetário: " << endl;
 
     personagem_->mostrarInventario();
+
+    personagem_->distribuirAtributos();
 
     lerCena();
 }

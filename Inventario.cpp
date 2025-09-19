@@ -17,7 +17,9 @@ void Inventario::adicionarItem(Item item_) {
 }
 
 void Inventario::mostrarInventario() {
+    cout << "Inventario:\n" << endl;
     for (auto i : itens) {
         cout << i.getNome();
     }
+    cout << endl;
 }
