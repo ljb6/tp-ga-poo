@@ -1,0 +1,4 @@
+Você contorna o campus pela lateral, seguindo o caminho arborizado até o matão – a vasta área verde cheia de árvores e bancos. O ar é fresco, mas ouve-se um rugido: um monstro selvagem, um "javali digital" feito de circuitos lógicos defeituosos, ataca! Usando sua habilidade em lógica de portões (lembrando das aulas de circuitos digitais), você o desativa com um NOT gate improvisado. Vitória! No matão, você encontra um acampamento de alunos estudando ML ao ar livre. Opções:
+
+#07: Juntar-se ao grupo de estudo
+#08: Explorar o lago próximo

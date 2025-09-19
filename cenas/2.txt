@@ -1,0 +1,4 @@
+Sem hesitar, você vaga pelos arredores iniciais. Encontra um atalho escondido atrás de um prédio, mas é emboscado por um enxame de "vírus de rede", monstros que representam falhas de segurança em NestJS. Com seu conhecimento de full-stack, você os elimina atualizando firewalls mentais. Agora, bifurcação:
+
+#09: Subir para o prédio de engenharia
+#10: Descer para o refeitório

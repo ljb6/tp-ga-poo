@@ -1,4 +1,4 @@
-#include <iostream>
+#include<iostream>
 
 #include "Lutador.h"
 #include "Personagem.h"
@@ -7,11 +7,11 @@
 #include <iostream>
 #include <string>
 
-int main() {
+    int main() {
 
-    Tela tela;
+  Tela tela;
 
-    tela.mostrarAbertura();
+  tela.mostrarAbertura();
 
-    return 0;
+  return 0;
 }

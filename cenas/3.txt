@@ -1,0 +1,4 @@
+Você cruza o portão principal, passando pelos seguranças amigáveis. O caminho leva à praça central, onde grupos de estudantes conversam sobre projetos de IA. De repente, um "monstro" aparece: um bug gigante de código malicioso, representando um erro de compilação! Você o derrota resolvendo um puzzle de C++ mentalmente, ganhando +10 pontos de experiência em programação. Agora, à sua frente:
+
+#05: Ir para a biblioteca
+#06: Visitar o laboratório de computação

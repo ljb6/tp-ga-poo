@@ -1,4 +1,5 @@
-Você começa na frente da entrada X da Unisinos.
+Você é um estudante de Ciência da Computação na Unisinos, pronto para uma jornada épica pelo campus de São Leopoldo. Armado com seu laptop e conhecimentos de programação, você começa na frente da entrada principal da universidade, onde o sol poente ilumina os prédios modernos e o movimento de alunos.
 
-#2: Entrar pela X
-#3: Dar a volta até o matão
+#02: Explorar o campus imediatamente
+#03: Entrar pela entrada principal
+#04: Dar a volta até o matão

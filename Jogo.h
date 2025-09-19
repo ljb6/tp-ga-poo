@@ -25,6 +25,7 @@ private:
     Personagem *personagem_;
 
     void lerCena();
+    bool verificarCena(int cena_);
     vector<int> cenas_visitadas;
     int cena = 1;
 };
