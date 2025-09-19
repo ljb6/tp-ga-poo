@@ -21,6 +21,11 @@ void Personagem::mostrarAtributos() {
     cout << "Sorte: " << sorte << "/12" << endl;
 }
 
+void Personagem::mostrarInventario() {
+    inventario_.mostrarInventario();
+}
+
+
 void Personagem::distribuirAtributos() {
     int p = 0;
     mostrarAtributos();

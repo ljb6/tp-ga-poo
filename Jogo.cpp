@@ -29,7 +29,7 @@ void Jogo::setPersonagem() {
 
     int tipo = 0; cin >> tipo;
 
-    personagem_ = new Lutador;
+    personagem_ = new Lutador();
 
     cout << "Digite um nome para o personagem: ";
     string nome_; cin >> nome_;
@@ -39,7 +39,7 @@ void Jogo::setPersonagem() {
 
     cout << "Invetário: " << endl;
 
-
+    personagem_->mostrarInventario();
 
     lerCena();
 }

@@ -5,14 +5,15 @@
 #include "Mago.h"
 
 Mago::Mago() : Personagem() {
-    vector<Itens> itens_iniciais = { Cajado, Roupao };
-    adicionarItensIniciais(itens_iniciais);
+    vector<Item> itens_iniciais = {
+        Item("Cajado Mágico", 7, TipoItem::Cajado)
+    };
+
+    for (auto i : itens_iniciais) {
+        inventario_.adicionarItem(i);
+    }
 }
 
 Mago::~Mago() {}
 
-void Mago::adicionarItensIniciais(const vector<Itens>& itens) {
-    for(const auto& item : itens) {
-        inventario_.adicionarItem(item); 
-    }
-}
+

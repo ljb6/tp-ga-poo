@@ -16,6 +16,7 @@ public:
     void distribuirAtributos();
     void setarNome(string nome_);
     bool testarSorte();
+    void mostrarInventario();
 
 private:
     string nome;

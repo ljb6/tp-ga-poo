@@ -5,17 +5,18 @@
 #include "Lutador.h"
 
 Lutador::Lutador() {
-    inicializarItens();
+
+    vector<Item> itens_iniciais = {Item("Espada Longa", 5, TipoItem::Espada)};
+
+    for (auto i : itens_iniciais) {
+        inventario_.adicionarItem(i);
+    }
 }
 
 Lutador::~Lutador() {
 
 }
 
-void Lutador::inicializarItens() {
-    inventario_.adicionarItem(
-        Item("Espada Longa", 5, TipoItem::Espada));
-}
 
 
 

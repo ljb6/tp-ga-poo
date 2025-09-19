@@ -10,8 +10,7 @@ class Lutador: public Personagem {
 public:
     Lutador();
     ~Lutador();
-private:
-    void inicializarItens();
+
 };
 
 #endif // TA_POO_LUTADOR_H

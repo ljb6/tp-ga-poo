@@ -17,11 +17,6 @@ public:
     Mago();
     ~Mago();
 
-    void adicionarItensIniciais(const vector<Itens>& itens);
-    Inventario inventario_;
-
-private:
-
 };
 
 #endif // TA_POO_MAGO_H

@@ -10,7 +10,6 @@ Item::Item(string nome_, int dano_, TipoItem tipo_) {
     tipo = tipo_;
 }
 
-
 Item::~Item() {
 
 }
