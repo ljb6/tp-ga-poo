@@ -1,4 +1,6 @@
-Sem hesitar, você vaga pelos arredores iniciais. Encontra um atalho escondido atrás de um prédio, mas é emboscado por um enxame de "vírus de rede", monstros que representam falhas de segurança em NestJS. Com seu conhecimento de full-stack, você os elimina atualizando firewalls mentais. Agora, bifurcação:
+Você resolve explorar o campus imediatamente, andando sem rumo e observando a paisagem. Logo, às suas costas, surge um monstro: o “Vírus do Wi-Fi Público”, tentando sequestrar seus dados!
 
-#09: Subir para o prédio de engenharia
-#10: Descer para o refeitório
+Você derrota o vírus utilizando seu antivírus mental e ganha uma Poção de Bateria Extra.
+
+#05: Seguir até a praça central
+#06: Investigar o laboratório de computação mais próximo

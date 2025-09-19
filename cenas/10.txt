@@ -1,0 +1,6 @@
+No laboratório/biblioteca, você encontra tanto o Mago do C++ quanto a Bibliotecária Sábia. Eles se unem para prepará-lo para o desafio final:
+“O Grande Monstro da Prova Final”, que guarda o portão para as férias.
+
+Você escolhe usar todos os itens coletados (Poção de Bateria Extra, Cartão de Acesso Universal, Chave USB Misteriosa, Sanduíche Energético, Stick de Debug, Grampeador de Cronogramas, Poção de Café Forte, Papel de Cola Legalizado).
+
+Graças à sua sabedoria, você derrota o monstro e desbloqueia: Férias Merecidas +1!

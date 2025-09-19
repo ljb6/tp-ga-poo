@@ -1,0 +1,6 @@
+No laboratório, máquinas brilham com códigos coloridos nas telas. Um “Monstro da Tela Azul” aparece com um erro fatídico—o pânico se espalha!
+
+Você reinicia o sistema com um comando mágico e ganha um Stick de Debug +5.
+
+#10: Conversar com o lendário Mago do C++ no laboratório
+#09: Sair para o prédio da engenharia
