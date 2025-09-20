@@ -69,3 +69,23 @@ void Personagem::distribuirAtributos() {
         }
     }
 }
+
+string Personagem::getNome() {
+    return nome;
+}
+
+int Personagem::getEnergia() {
+    return energia;
+}
+
+int Personagem::getSorte() {
+    return sorte;
+}
+
+int Personagem::getHabilidade() {
+    return habilidade;
+}
+
+int Personagem::getQuantidadeItens() {
+    inventario_.getQuantidadeItens();
+}

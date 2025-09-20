@@ -13,10 +13,16 @@ public:
     Personagem();
     ~Personagem();
 
+    string getNome();
+    int getHabilidade();
+    int getEnergia();
+    int getSorte();
+
     void distribuirAtributos();
     void setarNome(string nome_);
     bool testarSorte();
     void mostrarInventario();
+    int getQuantidadeItens();
 
 private:
     string nome;

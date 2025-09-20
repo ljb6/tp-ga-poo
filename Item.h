@@ -18,6 +18,11 @@ public:
     ~Item();
 
     string getNome();
+    int getDano();
+    string getTipo();
+
+    string fromTipoItemToString(TipoItem tipo_item_);
+    TipoItem fromStringToTipoItem();
 
 protected:
     string nome;

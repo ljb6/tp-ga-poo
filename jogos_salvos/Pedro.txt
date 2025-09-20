@@ -1,0 +1,13 @@
+nome
+Pedro
+
+atributos
+12
+6
+12
+
+cena_atual
+1
+
+cenas_visitadas
+

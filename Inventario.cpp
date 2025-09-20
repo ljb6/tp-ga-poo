@@ -23,3 +23,7 @@ void Inventario::mostrarInventario() {
     }
     cout << endl;
 }
+
+int Inventario::getQuantidadeItens() {
+    return itens.size();
+}

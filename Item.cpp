@@ -17,3 +17,14 @@ Item::~Item() {
 string Item::getNome() {
     return nome;
 }
+
+string Item::fromTipoItemToString(TipoItem tipo_item_) {
+    switch (tipo_item_) {
+        case Espada:
+            return "espada";
+        case Armadura:
+            return "armadura";
+        case Cajado:
+            return "cajado";
+    }
+}

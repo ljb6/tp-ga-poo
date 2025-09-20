@@ -31,10 +31,10 @@ void Jogo::setPersonagem() {
 
     personagem_ = new Lutador();
 
-    // cout << "Digite um nome para o personagem: ";
-    // string nome_; cin >> nome_;
+    cout << "Digite um nome para o personagem: ";
+    string nome_; cin >> nome_;
     //
-    // personagem_->setarNome(nome_);
+    personagem_->setarNome(nome_);
     //
     // personagem_->mostrarInventario();
     //
@@ -44,6 +44,7 @@ void Jogo::setPersonagem() {
 }
 
 void Jogo::lerCena() {
+    salvarJogo();
     cenas_visitadas.push_back(cena);
 
     string caminho = "../cenas/" + to_string(cena) + ".txt";
@@ -82,3 +83,32 @@ bool Jogo::verificarCena(int cena_) {
     return true;
 }
 
+void Jogo::salvarJogo() {
+    ofstream file;
+
+    string caminho = "../jogos_salvos/" + personagem_->getNome() + ".txt";
+    file.open (caminho);
+
+    file << "nome\n";
+    file << personagem_->getNome() << "\n\n";
+
+    file << "atributos\n";
+    file << to_string(personagem_->getEnergia()) << endl;
+    file << to_string(personagem_->getSorte()) << endl;
+    file << to_string(personagem_->getEnergia()) << "\n\n";
+
+    file << "itens\n";
+    file << to_string(personagem_->getQuantidadeItens()) << endl;
+    file << endl;
+
+    file << "cena_atual" << endl << cena << "\n\n";
+
+    file << "cenas_visitadas" << endl;
+    for (auto c : cenas_visitadas) {
+        file << to_string(c) << endl;
+    }
+    file << endl;
+
+
+    file.close();
+}

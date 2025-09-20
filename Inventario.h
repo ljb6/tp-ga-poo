@@ -14,6 +14,7 @@ public:
     ~Inventario();
 
     void mostrarInventario();
+    int getQuantidadeItens();
     void adicionarItem(Item item_);
     //void removerItem();
 
