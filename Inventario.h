@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <string>
 
 #include "Item.h"
 
@@ -16,6 +17,7 @@ public:
     void mostrarInventario();
     int getQuantidadeItens();
     void adicionarItem(Item item_);
+    vector<vector<string>> getItens();
     //void removerItem();
 
 private:

@@ -23,6 +23,7 @@ public:
     bool testarSorte();
     void mostrarInventario();
     int getQuantidadeItens();
+    vector<vector<string>> getItens();
 
 private:
     string nome;

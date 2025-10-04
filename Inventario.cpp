@@ -27,3 +27,15 @@ void Inventario::mostrarInventario() {
 int Inventario::getQuantidadeItens() {
     return itens.size();
 }
+
+vector<vector<string>> Inventario::getItens() {
+    vector<vector<string>> output;
+    for (auto i : itens) {
+        vector<string> item;
+        item.push_back(i.getNome());
+        item.push_back(to_string(i.getDano()));
+        item.push_back(i.getTipo());
+        output.push_back(item);
+    }
+    return output;
+}

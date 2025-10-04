@@ -107,3 +107,7 @@ int Personagem::getQuantidadeItens()
 {
     return inventario_.getQuantidadeItens();
 }
+
+vector<vector<string> > Personagem::getItens() {
+    return inventario_.getItens();
+}

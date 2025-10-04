@@ -5,9 +5,12 @@
 #include <iostream>
 #include <string>
 #include "Jogo.h"
+#include <filesystem>
 
 #include "Lutador.h"
 #include "Mago.h"
+
+namespace fs = std::filesystem;
 
 
 Jogo::Jogo() {
@@ -99,7 +102,14 @@ void Jogo::salvarJogo() {
 
     file << "itens\n";
     file << to_string(personagem_->getQuantidadeItens()) << endl;
-    file << endl;
+
+    vector<vector<string>> itens = personagem_->getItens();
+    for (auto v : itens) {
+        for (auto i : v) {
+            file << i << endl;
+        }
+    }
+    file << endl << endl;
 
     file << "cena_atual" << endl << cena << "\n\n";
 
@@ -111,4 +121,56 @@ void Jogo::salvarJogo() {
 
 
     file.close();
+}
+
+void Jogo::carregarJogo() {
+    string path = "../jogos_salvos";
+
+    int counter = 0;
+    vector<string> opcoes;
+
+    for (const auto & entry : fs::directory_iterator(path)) {
+        string formatted_string = "";
+
+        for (int i = 0; i < entry.path().string().length() - 1; i++) {
+            if (i > 15 && i < entry.path().string().length() - 4) {
+                formatted_string += entry.path().string()[i];
+                opcoes.push_back(formatted_string);
+            }
+        }
+
+        cout << "[" << counter << "] " << formatted_string << endl;
+        counter++;
+    }
+
+    int selected;
+    cout << "Escolha um jogo salvo\n> " << endl;
+    cin >> selected;
+
+    bool is_valid = false;
+    for (auto opcao : opcoes) {
+        if (opcao == opcoes[selected - 1]) is_valid = true;
+    }
+
+    if (!is_valid) carregarJogo();
+
+    string line;
+    string caminho = "../jogos_salvos/" + opcoes[selected - 1] + ".txt";
+    ifstream inputFile(caminho);
+
+    // TODO: Adicionar a classe (lutador ou mago)
+    string nome;
+    int sorte, energia, habilidade;
+    string cena;
+    vector<string> cenas_visitadas;
+    vector<Item> itens;
+
+    // AJEITAR
+    personagem_ = new Lutador();
+
+    while (getline(inputFile, line)) {
+        cout << line << endl;
+    }
+
+    inputFile.close();
 }

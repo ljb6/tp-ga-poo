@@ -33,6 +33,7 @@ void Tela::mostrarAbertura() {
             jogo.novoJogo();
             break;
         case 2:
+            jogo.carregarJogo();
             break;
         case 3:
             exibirCreditos();
