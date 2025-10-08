@@ -111,3 +111,23 @@ int Personagem::getQuantidadeItens()
 vector<vector<string> > Personagem::getItens() {
     return inventario_.getItens();
 }
+
+void Personagem::adicionarTesouro(int valor) {
+    tesouro += valor;
+}
+
+void Personagem::adicionarProvisoes(int quantidade) {
+    provisoes += quantidade;
+}
+
+int Personagem::getTesouro()
+{
+    return tesouro;
+}
+
+int Personagem::getProvisoes()
+{
+    return provisoes;
+}
+
+
