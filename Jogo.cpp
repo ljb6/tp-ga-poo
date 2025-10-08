@@ -9,6 +9,7 @@
 
 #include "Lutador.h"
 #include "Mago.h"
+#include "Monstro.h"
 
 namespace fs = std::filesystem;
 
@@ -174,3 +175,59 @@ void Jogo::carregarJogo() {
 
     inputFile.close();
 }
+
+//TODO:tem que testar
+void Jogo::iniciarBatalha(Monstro& monstro) {
+    cout << "\n=== INÍCIO DA BATALHA ===\n";
+    monstro.mostrarInfo();
+
+    while (monstro.estaVivo() && personagem_->getEnergia() > 0) {
+        cout << "\nEscolha uma ação:\n";
+        cout << "[1] Atacar\n";
+        cout << "[2] Fugir\n> ";
+        int escolha;
+        cin >> escolha;
+
+        if (escolha == 2) {
+            cout << "Você fugiu da batalha!\n";
+            return;
+        }
+
+        int FA_jogador = personagem_->getHabilidade() + (rand() % 10 + 1);
+        int FA_inimigo = monstro.getHabilidade() + (rand() % 10 + 1);
+
+        cout << "\nSua Força de Ataque: " << FA_jogador;
+        cout << " | Força de Ataque do " << monstro.getNome() << ": " << FA_inimigo << endl;
+
+        if (FA_jogador > FA_inimigo) {
+            cout << "Você acertou o inimigo!\n";
+            monstro.receberDano(2);
+        } else if (FA_inimigo > FA_jogador) {
+            cout << monstro.getNome() << " te atingiu!\n";
+            personagem_->setEnergia(personagem_->getEnergia() - 2);
+        } else {
+            cout << "Ambos erraram o ataque!\n";
+        }
+
+        cout << "Energia do inimigo: " << monstro.getEnergia() << endl;
+        cout << "Sua energia: " << personagem_->getEnergia() << endl;
+    }
+
+    cout << "\n=== FIM DA BATALHA ===\n";
+
+    if (monstro.estaVivo()) {
+        cout << "Você foi derrotado... fim de jogo!\n";
+        exit(0);
+    } else {
+        cout << "Você derrotou o " << monstro.getNome() << "!\n";
+
+        if (monstro.getTesouro() > 0)
+            cout << "Você encontrou " << monstro.getTesouro() << " moedas de ouro!\n";
+        if (monstro.getProvisoes() > 0)
+            cout << "Você pegou " << monstro.getProvisoes() << " provisões!\n";
+        if (monstro.getItem().getNome() != "Nenhum")
+            cout << "Você obteve o item: " << monstro.getItem().getNome() << "!\n";
+    }
+}
+
+
