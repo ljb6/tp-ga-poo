@@ -1,2 +1,3 @@
-Você foi derrotado :(
-Sua aventura termina aqui... pelo menos por enquanto.
+A porta de ferro se abre com um ranger profundo. A câmara além revela um altar antigo; o mal é disperso como neblina ao sol. Você retorna a Valedouro como herói discreto, com a estrada enfim segura.
+
+O jogo termina aqui. Você venceu!

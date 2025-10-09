@@ -1,6 +1,4 @@
-Chegando ao prédio da engenharia, você encontra escadas cheias de enigmas matemáticos. Um “Puzzle de Integral Infinita” bloqueia seu caminho.
+O túnel profundo desce em espiral. Você encontra um nicho com uma **Chave de Ferro** marcada por um símbolo de portão.
 
-Você resolve o desafio mostrando maestria em cálculo, obtendo um Papel de Cola Legalizado.
-
-#11: Procurar o Mago do C++ ou a bibliotecária para obter um último conselho antes do chefe final
-#07: Voltar para a biblioteca
+#10 - Seguir ouvindo o som de água ao sul
+#11 - Procurar a porta de ferro mencionada pelo Ancião

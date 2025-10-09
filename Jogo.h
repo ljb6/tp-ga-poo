@@ -7,6 +7,10 @@
 #include "Inventario.h"
 #include "Personagem.h"
 #include <iostream>
+#include <string>
+
+// forward declaration
+class Monstro;
 
 using namespace std;
 
@@ -29,6 +33,7 @@ private:
 
     void lerCena();
     bool verificarCena(int cena_);
+    void iniciarBatalha(Monstro& monstro);
     vector<int> cenas_visitadas;
     int cena = 1;
 };

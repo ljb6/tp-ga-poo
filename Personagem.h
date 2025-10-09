@@ -24,8 +24,20 @@ public:
     void setarNome(string nome_);
     bool testarSorte();
     void mostrarInventario();
-    int getQuantidadeItens();
+    //int getQuantidadeItens();
     vector<vector<string>> getItens();
+        const Inventario& getInventario() const;
+
+        bool equiparItem(int index);
+        int getEquippedWeaponIndex() const;
+        int getEquippedArmorIndex() const;
+        int getEquippedWeaponFa() const;
+        int getEquippedArmorFa() const;
+        int getEquippedWeaponDano() const;
+        int getEquippedArmorProt() const;
+
+    void setEnergia(int energia_);
+    void adicionarItem(Item item_);
 
     void adicionarTesouro(int valor);
     void adicionarProvisoes(int quantidade);
@@ -41,6 +53,9 @@ private:
     int habilidade = 6;
     int energia = 12;
     int sorte = 6;
+        // equipamento: índices no inventário (-1 = nenhum)
+        int equippedWeaponIndex = -1;
+        int equippedArmorIndex = -1;
 
     int tesouro = 0;
     int provisoes = 0;

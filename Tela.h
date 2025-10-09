@@ -14,6 +14,7 @@ public:
     void mostrarInvetario();
     void mostrarPadrao();
     void mostrarBatalha();
+    static void limpar();
 
 private:
     void exibirCreditos();

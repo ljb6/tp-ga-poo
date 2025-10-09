@@ -1,21 +1,27 @@
 nome
-Lucca
+you
 
 atributos
-6
 12
-6
+12
+12
 
 itens
 1
-Espada_Longa 5 espada 
+Espada Longa 5 espada 
+
+provisoes
+0
+
+tesouro
+0
 
 cena_atual
-8
+32
 
 cenas_visitadas
-2
-1 4 
+1
+1 
 
 tipo_personagem
 lutador

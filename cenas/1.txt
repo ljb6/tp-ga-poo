@@ -1,5 +1,5 @@
-Você é um estudante de Ciência da Computação na Unisinos, pronto para uma jornada épica pelo campus de São Leopoldo. Armado com seu laptop e conhecimentos de programação, você começa na frente da entrada principal da universidade, onde o sol poente ilumina os prédios modernos e o movimento de alunos.
+Você desperta às portas da vila de **Valedouro**. O ancião falou de um mal antigo que retorna nas cavernas ao norte. Você precisa atravessar a floresta, achar a entrada e derrotar o Guardião.
 
-#02: Explorar o campus imediatamente
-#03: Entrar pela entrada principal
-#04: Dar a volta até o matão
+#02 - Tomar a trilha pela floresta
+#03 - Seguir pela estrada velha
+#04 - Visitar o Ancião da Vila

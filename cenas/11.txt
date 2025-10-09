@@ -1,0 +1,11 @@
+m
+Diante da porta de ferro, o ar vibra. O Guardião das Cavernas – um Orc Guerreiro em armadura de placas – ruge e ergue sua lâmina. Apenas sua queda abrirá o caminho.
+
+N: Guardião das Cavernas
+H: 11
+S: 8
+E: 10
+T: 30
+P: 1
+I: Lâmina do Desfiladeiro;w;1;0;2
+12;13

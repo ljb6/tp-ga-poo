@@ -1,2 +1,3 @@
-Você foi derrotado :(
-Sua aventura termina aqui... pelo menos por enquanto.
+Você cai de joelhos e a escuridão o abraça. As cavernas permanecem guardadas e a estrada, perigosa. Talvez outra tentativa, com novos cuidados, traga melhor sorte.
+
+O jogo termina aqui. Você foi derrotado.

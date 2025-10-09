@@ -1,0 +1,27 @@
+nome
+gg
+
+atributos
+12
+14
+9
+
+itens
+3
+Espada_Longa;espada;1;2;5 Armadura_Leve;armadura;1;0;1 Couraça_Fendida;armadura;0;-1;0 
+
+provisoes
+0
+
+tesouro
+5
+
+cena_atual
+12
+
+cenas_visitadas
+8
+1 3 6 7 8 9 11 12 
+
+tipo_personagem
+lutador

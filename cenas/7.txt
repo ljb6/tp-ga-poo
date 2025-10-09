@@ -1,7 +1,4 @@
-A biblioteca está silenciosa, mas cheia de mistérios. Um “Fantasma do Prazo Perdido” geme entre as estantes.
+O desfiladeiro estreito revela a boca de uma caverna. Faixas de vento frio sopram do interior. Uma tocha apagada jaz ao lado da entrada.
 
-Você o apazigua mostrando seu cronograma bem organizado, recebendo o item Grampeador de Cronogramas.
-
-#10: Pesquisar livros raros e conversar com a bibliotecária sábia
-#05: Voltar à praça central
-
+#08 - Entrar pela passagem das criptas
+#09 - Tomar o túnel profundo

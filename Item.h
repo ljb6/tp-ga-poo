@@ -14,20 +14,26 @@ enum TipoItem {
 
 class Item {
 public:
-    Item(string nome_, int dano_, TipoItem tipo_);
+    Item(string nome_, int dano_, TipoItem tipo_, bool combate_ = true, int faBonus_ = 0);
     ~Item();
 
-    string getNome();
-    int getDano();
-    string getTipo();
+    string getNome() const;
+    int getDano() const;
+    string getTipo() const;
+    TipoItem getTipoEnum() const;
 
-    string fromTipoItemToString(TipoItem tipo_item_);
-    TipoItem fromStringToTipoItem();
+    bool isUsavelEmCombate() const;
+    int getFaBonus() const;
+
+    string fromTipoItemToString(TipoItem tipo_item_) const;
+    TipoItem fromStringToTipoItem() const;
 
 protected:
     string nome;
     int dano;
     TipoItem tipo;
+    bool combate = false;
+    int faBonus = 0;
 };
 
 

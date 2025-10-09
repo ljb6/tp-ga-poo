@@ -16,6 +16,11 @@ void Tela::exibirCreditos() {
     mostrarAbertura();
 }
 
+void Tela::limpar() {
+    // ANSI clear screen
+    cout << "\x1B[2J\x1B[H";
+}
+
 void Tela::mostrarAbertura() {
     cout << "[1] Novo jogo" << endl;
     cout << "[2] Carregar jogo" << endl;

@@ -1,0 +1,27 @@
+nome
+Andrio
+
+atributos
+9
+15
+12
+
+itens
+2
+Espada_Longa;espada;1;2;5 Armadura_Leve;armadura;1;0;1 
+
+provisoes
+0
+
+tesouro
+0
+
+cena_atual
+1
+
+cenas_visitadas
+0
+
+
+tipo_personagem
+lutador

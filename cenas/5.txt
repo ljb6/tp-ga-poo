@@ -1,6 +1,11 @@
-Você chega à praça central, onde alunos conversam e food trucks servem lanches. De repente, debaixo de uma mesa, surge um enxame de “Mini Bots de Spam”.
+m
+No coração da mata, um uivo grave anuncia perigo. Um Lobo Terrível salta das sombras, olhos amarelos brilhando.
 
-Você resolve a situação capturando-os com um comando de firewall e ganha um Sanduíche Energético.
-
-#07: Ir para a biblioteca
-#09: Visitar o prédio da engenharia
+N: Lobo Terrível
+H: 9
+S: 7
+E: 8
+T: 8
+P: 1
+I: Presa Serrilhada;w;1;0;1
+07;13

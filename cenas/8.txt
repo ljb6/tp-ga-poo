@@ -1,6 +1,11 @@
-Você explora o lago no matão. A névoa se ergue e um “Pato Mutante do Merge Malfeito” emerge da água, bagunçando commits no seu repositório mental!
+m
+Nas criptas, ossos tilintam. Um Esqueleto Sentinela se ergue com lâmina enferrujada, guardando o corredor.
 
-Você resolve tudo com um merge limpo e ganha Poção de Café Forte.
-
-#09: Atravessar a ponte em direção ao prédio da engenharia
-#05: Voltar à praça central
+N: Esqueleto Sentinela
+H: 10
+S: 6
+E: 6
+T: 5
+P: 0
+I: Couraça Fendida;r;0;-1;0
+09;13

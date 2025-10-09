@@ -1,0 +1,3 @@
+/workspaces/tp-ga-poo/build/CMakeFiles/TA_POO.dir
+/workspaces/tp-ga-poo/build/CMakeFiles/edit_cache.dir
+/workspaces/tp-ga-poo/build/CMakeFiles/rebuild_cache.dir

@@ -1,6 +1,3 @@
-No laboratório, máquinas brilham com códigos coloridos nas telas. Um “Monstro da Tela Azul” aparece com um erro fatídico—o pânico se espalha!
+Você encontra o Santuário Antigo: pedras cobertas de musgo, uma tigela de água límpida e velhas inscrições. Você respira fundo e sente as forças voltarem — o caminho às cavernas segue pelo norte.
 
-Você reinicia o sistema com um comando mágico e ganha um Stick de Debug +5.
-
-#10: Conversar com o lendário Mago do C++ no laboratório
-#09: Sair para o prédio da engenharia
+#07 - Seguir ao desfiladeiro das cavernas

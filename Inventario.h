@@ -15,9 +15,11 @@ public:
     ~Inventario();
 
     void mostrarInventario();
+    void mostrarInventario(int equippedWeaponIndex, int equippedArmorIndex) const;
     int getQuantidadeItens();
     void adicionarItem(Item item_);
     vector<vector<string>> getItens();
+    const vector<Item>& getItemObjects() const;
     //void removerItem();
 
 private:

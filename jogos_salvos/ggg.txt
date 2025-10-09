@@ -1,0 +1,28 @@
+nome
+ggg
+
+atributos
+8
+17
+11
+
+itens
+2
+Espada_Longa;w;1;2;5 Couraça;r;1;1;0 
+
+provisoes
+0
+
+tesouro
+0
+
+cena_atual
+5
+
+cenas_visitadas
+2
+1 2 
+
+tipo_personagem
+lutadorequipamento
+-1 -1

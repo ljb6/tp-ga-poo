@@ -1,3 +1,7 @@
+//
+// Created by Ândrio Epping on 07/10/25.
+//
+
 #include "Monstro.h"
 
 Monstro::Monstro() {}

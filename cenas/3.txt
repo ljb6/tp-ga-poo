@@ -1,6 +1,4 @@
-Você entra pela entrada principal. Logo na recepção encontra uma caloura em pânico, pois perdeu o cartão de acesso. Um “Bug de Permissão” bloqueia o caminho.
+A estrada velha avança entre muros de pedra caídos. Ao longe, você avista marcos de fronteira e um velho marco com runas.
 
-Você ajuda a resolver com seu conhecimento de TI e recebe um item: Cartão de Acesso Universal.
-
-#06: Seguir junto da caloura para o laboratório de computação
-#07: Ir direto para a biblioteca buscar conhecimento
+#06 - Cortar caminho rumo ao Santuário Antigo
+#07 - Continuar até o desfiladeiro que leva às cavernas

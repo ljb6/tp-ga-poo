@@ -1,6 +1,4 @@
-Você decide dar a volta até o matão, respirando o ar fresco e atravessando a estrada de árvores. No fim do caminho, um “Javali de Bytes Corrompidos” rosna para você.
+O Ancião da Vila lhe entrega um amuleto simples. “As cavernas provarão sua coragem. No santuário, recupere o fôlego. Busque a porta de ferro.”
 
-Você programa um algoritmo de limpeza e derrota o monstro, ganhando Chave USB Misteriosa.
-
-#08: Explorar o lago
-#05: Retornar à praça central
+#06 - Ir ao Santuário Antigo
+#03 - Voltar à estrada velha

@@ -6,7 +6,7 @@
 
 Lutador::Lutador()
 {
-    vector<Item> itens_iniciais = {Item("Espada Longa", 5, TipoItem::Espada)};
+    vector<Item> itens_iniciais = {Item("Espada Longa", 5, TipoItem::Espada, true, 2), Item("Couraça", 0, TipoItem::Armadura, true, 1)};
 
     for (auto i : itens_iniciais)
     {
