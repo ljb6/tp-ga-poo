@@ -235,6 +235,13 @@ void Jogo::salvarJogo() {
     }
     file << endl << endl;
 
+    // Adicionado como comentário a parte das provisoes e tesouro
+     // file<< "provisoes\n";
+    // file << to_string(personagem_->getProvisoes()) << "\n\n";
+
+    // file << "tesouro\n";
+    // file << to_string(personagem_->getTesouro()) << "\n\n";
+
     file << "cena_atual" << endl << cena << "\n\n";
 
     file << "cenas_visitadas" << endl;
@@ -242,7 +249,6 @@ void Jogo::salvarJogo() {
         file << to_string(c) << endl;
     }
     file << endl;
-
 
     file.close();
 }
