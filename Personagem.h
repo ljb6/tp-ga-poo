@@ -24,6 +24,8 @@ public:
     void mostrarInventario();
     void adicionarTesouro(int valor);
     void adicionarProvisoes(int quantidade);
+    //void usarProvisao();
+    //int getEnergiaMaxima();
     int getQuantidadeItens();
     int getTesouro();
     int getProvisoes();
@@ -35,6 +37,7 @@ private:
     int habilidade = 6;
     int energia = 12;
     int sorte = 6;
+    //int energia_maxima = 0;
 
     void mostrarAtributos();
 
