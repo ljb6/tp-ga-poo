@@ -60,6 +60,7 @@ void Personagem::distribuirAtributos()
             {
                 energia++;
                 p++;
+                energia_maxima = energia;
             }
             else
             {
@@ -82,6 +83,10 @@ void Personagem::distribuirAtributos()
         }
     }
 }
+
+//int Personagem::getEnergiaMaxima(){
+//    return energia_maxima;
+//}
 
 string Personagem::getNome()
 {
