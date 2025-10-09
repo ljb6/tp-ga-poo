@@ -463,76 +463,76 @@ TipoItem Jogo::fromStringToTipoItem(string str)
         return Armadura;
     return Espada;
 }
-//
-// //TODO:tem que testar
-// void Jogo::iniciarBatalha(Monstro& monstro) {
-//     cout << "\n=== INÍCIO DA BATALHA ===\n";
-//     monstro.mostrarInfo();
-//
-//     while (monstro.estaVivo() && personagem_->getEnergia() > 0) {
-//         cout << "\nEscolha uma ação:\n";
-//         cout << "[1] Atacar\n";
-//         cout << "[2] Fugir\n> ";
-//         int escolha;
-//         cin >> escolha;
-//
-//         if (escolha == 2) {
-//             cout << "Você fugiu da batalha!\n";
-//             return;
-//         }
-//
-//         int FA_jogador = personagem_->getHabilidade() + (rand() % 10 + 1);
-//         int FA_inimigo = monstro.getHabilidade() + (rand() % 10 + 1);
-//
-//         cout << "\nSua Força de Ataque: " << FA_jogador;
-//         cout << " | Força de Ataque do " << monstro.getNome() << ": " << FA_inimigo << endl;
-//
-//         if (FA_jogador > FA_inimigo) {
-//             cout << "Você atingiu o inimigo!\n";
-//             monstro.receberDano(2);
-//         } else if (FA_inimigo > FA_jogador) {
-//             cout << monstro.getNome() << " te atingiu!\n";
-//             personagem_->setEnergia(personagem_->getEnergia() - 2);
-//         } else {
-//             cout << "Ambos erraram o ataque!\n";
-//         }
-//
-//         cout << "Energia do inimigo: " << monstro.getEnergia() << endl;
-//         cout << "Sua energia: " << personagem_->getEnergia() << endl;
-//     }
-//
-//     cout << "\n=== FIM DA BATALHA ===\n";
-//
-//     if (monstro.estaVivo()) {
-//         cout << "\nVocê foi derrotado pelo " << monstro.getNome() << "...\n";
-//         cout << "Fim de jogo.\n";
-//         exit(0);
-//     }
-//
-//     cout << "\nVocê derrotou o " << monstro.getNome() << "!\n";
-//
-//     // Tesouro
-//     if (monstro.getTesouro() > 0) {
-//         cout << "Você encontrou " << monstro.getTesouro() << " moedas de ouro!\n";
-//         personagem_->adicionarTesouro(monstro.getTesouro());}
-//
-//     //Provisoes
-//     if (monstro.getProvisoes() > 0) {
-//         cout << "Você pegou " << monstro.getProvisoes() << " provisões!\n";
-//         personagem_->adicionarProvisoes(monstro.getProvisoes());}
-//
-//     //Drop itens
-//     if (monstro.getItem().getNome() != "Nenhum") {
-//         cout << "Você obteve o item: " << monstro.getItem().getNome() << "!\n";
-//         personagem_->inventario_.adicionarItem(monstro.getItem());
-//     }
-//
-//     //cout << "\nResumo da vitória:\n";
-//     //cout << "- Tesouro: " << monstro.getTesouro() << " moedas\n";
-//     //cout << "- Provisões: " << monstro.getProvisoes() << endl;
-//     //cout << "- Item: " << monstro.getItem().getNome() << endl;
-//
-//     cout << "\nPressione ENTER para continuar...\n";
-//     cin.ignore();
-//     cin.get();
-//}
+
+//TODO:tem que testar
+void Jogo::iniciarBatalha(Monstro& monstro) {
+    cout << "\n=== INÍCIO DA BATALHA ===\n";
+    monstro.mostrarInfo();
+
+    while (monstro.estaVivo() && personagem_->getEnergia() > 0) {
+        cout << "\nEscolha uma ação:\n";
+        cout << "[1] Atacar\n";
+        cout << "[2] Fugir\n> ";
+        int escolha;
+        cin >> escolha;
+
+        if (escolha == 2) {
+            cout << "Você fugiu da batalha!\n";
+            return;
+        }
+
+        int FA_jogador = personagem_->getHabilidade() + (rand() % 10 + 1);
+        int FA_inimigo = monstro.getHabilidade() + (rand() % 10 + 1);
+
+        cout << "\nSua Força de Ataque: " << FA_jogador;
+        cout << " | Força de Ataque do " << monstro.getNome() << ": " << FA_inimigo << endl;
+
+        if (FA_jogador > FA_inimigo) {
+            cout << "Você atingiu o inimigo!\n";
+            monstro.receberDano(2);
+        } else if (FA_inimigo > FA_jogador) {
+            cout << monstro.getNome() << " te atingiu!\n";
+            personagem_->setEnergia(personagem_->getEnergia() - 2);
+        } else {
+            cout << "Ambos erraram o ataque!\n";
+        }
+
+        cout << "Energia do inimigo: " << monstro.getEnergia() << endl;
+        cout << "Sua energia: " << personagem_->getEnergia() << endl;
+    }
+
+    cout << "\n=== FIM DA BATALHA ===\n";
+
+    if (monstro.estaVivo()) {
+        cout << "\nVocê foi derrotado pelo " << monstro.getNome() << "...\n";
+        cout << "Fim de jogo.\n";
+        exit(0);
+    }
+
+    cout << "\nVocê derrotou o " << monstro.getNome() << "!\n";
+
+    // Tesouro
+    if (monstro.getTesouro() > 0) {
+        cout << "Você encontrou " << monstro.getTesouro() << " moedas de ouro!\n";
+        personagem_->adicionarTesouro(monstro.getTesouro());}
+
+    //Provisoes
+    if (monstro.getProvisoes() > 0) {
+        cout << "Você pegou " << monstro.getProvisoes() << " provisões!\n";
+        personagem_->adicionarProvisoes(monstro.getProvisoes());}
+
+    //Drop itens
+    if (monstro.getItem().getNome() != "Nenhum") {
+        cout << "Você obteve o item: " << monstro.getItem().getNome() << "!\n";
+        personagem_->inventario_.adicionarItem(monstro.getItem());
+    }
+
+    //cout << "\nResumo da vitória:\n";
+    //cout << "- Tesouro: " << monstro.getTesouro() << " moedas\n";
+    //cout << "- Provisões: " << monstro.getProvisoes() << endl;
+    //cout << "- Item: " << monstro.getItem().getNome() << endl;
+
+    cout << "\nPressione ENTER para continuar...\n";
+    cin.ignore();
+    cin.get();
+}

@@ -24,7 +24,7 @@ public:
     void setarNome(string nome_);
     bool testarSorte();
     void mostrarInventario();
-    //int getQuantidadeItens();
+    int getQuantidadeItens();
     vector<vector<string>> getItens();
 
     void adicionarTesouro(int valor);
