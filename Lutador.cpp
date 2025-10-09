@@ -4,20 +4,25 @@
 
 #include "Lutador.h"
 
-Lutador::Lutador() {
-
+Lutador::Lutador()
+{
     vector<Item> itens_iniciais = {Item("Espada Longa", 5, TipoItem::Espada)};
 
-    for (auto i : itens_iniciais) {
+    for (auto i : itens_iniciais)
+    {
         inventario_.adicionarItem(i);
     }
 }
 
-Lutador::~Lutador() {
-
+Lutador::Lutador(const string &nome, int habilidade, int energia, int sorte, const vector<Item> &itens)
+    : Personagem(nome, habilidade, energia, sorte)
+{
+    for (const auto &i : itens)
+    {
+        inventario_.adicionarItem(i);
+    }
 }
 
-
-
-
-
+Lutador::~Lutador()
+{
+}

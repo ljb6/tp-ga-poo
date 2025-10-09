@@ -10,7 +10,8 @@
 
 using namespace std;
 
-class Jogo {
+class Jogo
+{
 public:
     Jogo();
     ~Jogo();
@@ -21,6 +22,8 @@ public:
 
     void setPersonagem();
 
+    TipoItem fromStringToTipoItem(string str);
+
 private:
     Personagem *personagem_;
 
@@ -30,5 +33,4 @@ private:
     int cena = 1;
 };
 
-
-#endif //TA_POO_JOGO_H
+#endif // TA_POO_JOGO_H

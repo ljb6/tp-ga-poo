@@ -4,6 +4,11 @@ Personagem::Personagem()
 {
 }
 
+Personagem::Personagem(const string &nome, int habilidade, int energia, int sorte)
+    : nome(nome), habilidade(habilidade), energia(energia), sorte(sorte)
+{
+}
+
 Personagem::~Personagem()
 {
 }
@@ -84,10 +89,6 @@ void Personagem::distribuirAtributos()
     }
 }
 
-//int Personagem::getEnergiaMaxima(){
-//    return energia_maxima;
-//}
-
 string Personagem::getNome()
 {
     return nome;
@@ -113,7 +114,8 @@ int Personagem::getQuantidadeItens()
     return inventario_.getQuantidadeItens();
 }
 
-vector<vector<string> > Personagem::getItens() {
+vector<vector<string>> Personagem::getItens()
+{
     return inventario_.getItens();
 }
 
@@ -135,4 +137,6 @@ int Personagem::getProvisoes()
     return provisoes;
 }
 
-
+int Personagem::getEnergiaMaxima(){
+    return energia_maxima;
+}

@@ -13,30 +13,33 @@
 
 namespace fs = std::filesystem;
 
-
-Jogo::Jogo() {
-
+Jogo::Jogo()
+{
 }
 
-Jogo::~Jogo() {
-
+Jogo::~Jogo()
+{
 }
 
-void Jogo::novoJogo() {
+void Jogo::novoJogo()
+{
     setPersonagem();
 }
 
-void Jogo::setPersonagem() {
+void Jogo::setPersonagem()
+{
     cout << "Selecione o tipo do personagem:" << endl;
     cout << "[1] - Lutador" << endl;
     cout << "[2] - Mago\n>" << endl;
 
-    int tipo = 0; cin >> tipo;
+    int tipo = 0;
+    cin >> tipo;
 
     personagem_ = new Lutador();
 
     cout << "Digite um nome para o personagem: ";
-    string nome_; cin >> nome_;
+    string nome_;
+    cin >> nome_;
     //
     personagem_->setarNome(nome_);
     //
@@ -44,39 +47,6 @@ void Jogo::setPersonagem() {
     //
     // personagem_->distribuirAtributos();
 
-    lerCena();
-}
-
-void Jogo::lerCena() {
-    salvarJogo();
-    cenas_visitadas.push_back(cena);
-
-    string caminho = "../cenas/" + to_string(cena) + ".txt";
-
-    ifstream inputFile(caminho);
-
-    string line;
-
-    while (getline(inputFile, line)) {
-        if (line[0] == '#') {
-            cout << "[" << line.substr(1, 2) << "] - " << line.substr(4, line.length() - 1) << endl;
-        } else {
-            cout << line << endl;
-        }
-    }
-
-    inputFile.close();
-
-    cout << "Escolha uma opção:\n> ";
-    int opcao; cin >> opcao;
-
-    bool proximaCenaValida = verificarCena(opcao);
-    if (!proximaCenaValida) {
-        cout << "Você já passou por essa cena, escolha uma cena válida!" << endl;
-        lerCena();
-    }
-
-    cena = opcao;
     lerCena();
 }
 
@@ -203,72 +173,137 @@ void Jogo::lerCena() {
 //     lerCena();
 // }
 
-bool Jogo::verificarCena(int cena_) {
-    for (auto it = cenas_visitadas.begin(); it != cenas_visitadas.end(); ++it) {
-        if (*it == cena_) return false;
+void Jogo::lerCena()
+{
+    salvarJogo();
+    cenas_visitadas.push_back(cena);
+
+    string caminho = "../cenas/" + to_string(cena) + ".txt";
+
+    ifstream inputFile(caminho);
+
+    string line;
+
+    while (getline(inputFile, line))
+    {
+        if (line[0] == '#')
+        {
+            cout << "[" << line.substr(1, 2) << "] - " << line.substr(4, line.length() - 1) << endl;
+        }
+        else
+        {
+            cout << line << endl;
+        }
+    }
+
+    inputFile.close();
+
+    cout << "Escolha uma opção:\n> ";
+    int opcao;
+    cin >> opcao;
+
+    bool proximaCenaValida = verificarCena(opcao);
+    if (!proximaCenaValida)
+    {
+        cout << "Você já passou por essa cena, escolha uma cena válida!" << endl;
+        lerCena();
+    }
+
+    cena = opcao;
+    lerCena();
+}
+
+bool Jogo::verificarCena(int cena_)
+{
+    for (auto it = cenas_visitadas.begin(); it != cenas_visitadas.end(); ++it)
+    {
+        if (*it == cena_)
+            return false;
     }
     return true;
 }
 
-void Jogo::salvarJogo() {
+void Jogo::salvarJogo()
+{
     ofstream file;
 
     string caminho = "../jogos_salvos/" + personagem_->getNome() + ".txt";
-    file.open (caminho);
+    file.open(caminho);
 
     file << "nome\n";
     file << personagem_->getNome() << "\n\n";
 
     file << "atributos\n";
+    file << to_string(personagem_->getHabilidade()) << endl;
     file << to_string(personagem_->getEnergia()) << endl;
-    file << to_string(personagem_->getSorte()) << endl;
-    file << to_string(personagem_->getEnergia()) << "\n\n";
+    file << to_string(personagem_->getSorte()) << "\n\n";
 
     file << "itens\n";
     file << to_string(personagem_->getQuantidadeItens()) << endl;
 
     vector<vector<string>> itens = personagem_->getItens();
-    for (auto v : itens) {
-        for (auto i : v) {
-            file << i << endl;
+    for (auto v : itens)
+    {
+        for (auto i : v)
+        {
+            file << i << " ";
         }
     }
-    file << endl << endl;
+    file << endl
+         << endl;
 
     // Adicionado como comentário a parte das provisoes e tesouro
-     // file<< "provisoes\n";
+    // file<< "provisoes\n";
     // file << to_string(personagem_->getProvisoes()) << "\n\n";
 
     // file << "tesouro\n";
     // file << to_string(personagem_->getTesouro()) << "\n\n";
 
-    file << "cena_atual" << endl << cena << "\n\n";
+    file << "cena_atual" << endl
+         << cena << "\n\n";
 
     file << "cenas_visitadas" << endl;
-    for (auto c : cenas_visitadas) {
-        file << to_string(c) << endl;
+    file << cenas_visitadas.size() << endl;
+    for (auto c : cenas_visitadas)
+    {
+        file << to_string(c) << " ";
     }
-    file << endl;
+    file << endl
+         << endl;
+
+    file << "tipo_personagem\n";
+    if (dynamic_cast<Lutador *>(personagem_))
+    {
+        file << "lutador";
+    }
+    else if (dynamic_cast<Mago *>(personagem_))
+    {
+        file << "mago";
+    }
 
     file.close();
 }
 
-void Jogo::carregarJogo() {
+void Jogo::carregarJogo()
+{
     string path = "../jogos_salvos";
 
     int counter = 0;
     vector<string> opcoes;
 
-    for (const auto & entry : fs::directory_iterator(path)) {
+    for (const auto &entry : fs::directory_iterator(path))
+    {
         string formatted_string = "";
 
-        for (int i = 0; i < entry.path().string().length() - 1; i++) {
-            if (i > 15 && i < entry.path().string().length() - 4) {
+        for (int i = 0; i < entry.path().string().length() - 1; i++)
+        {
+            if (i > 15 && i < entry.path().string().length() - 4)
+            {
                 formatted_string += entry.path().string()[i];
-                opcoes.push_back(formatted_string);
             }
         }
 
+        opcoes.push_back(formatted_string); // movido para fora do loop interno
         cout << "[" << counter << "] " << formatted_string << endl;
         counter++;
     }
@@ -277,34 +312,159 @@ void Jogo::carregarJogo() {
     cout << "Escolha um jogo salvo\n> " << endl;
     cin >> selected;
 
-    bool is_valid = false;
-    for (auto opcao : opcoes) {
-        if (opcao == opcoes[selected - 1]) is_valid = true;
+    if (selected < 0 || selected >= opcoes.size())
+    {
+        cout << "Opção inválida!" << endl;
+        carregarJogo();
+        return;
     }
 
-    if (!is_valid) carregarJogo();
-
     string line;
-    string caminho = "../jogos_salvos/" + opcoes[selected - 1] + ".txt";
+    string caminho = "../jogos_salvos/" + opcoes[selected] + ".txt";
     ifstream inputFile(caminho);
 
-    // TODO: Adicionar a classe (lutador ou mago)
     string nome;
+
     int sorte, energia, habilidade;
-    string cena;
-    vector<string> cenas_visitadas;
+
+    int quantidade_itens = 0;
+    vector<string> itens_nao_formatado;
     vector<Item> itens;
 
-    // AJEITAR
-    personagem_ = new Lutador();
+    int quantidade_cenas = 0;
+    int cena_atual;
+    vector<int> cenas;
 
-    while (getline(inputFile, line)) {
-        cout << line << endl;
+    string tipo_personagem;
+
+    if (!inputFile.is_open())
+    {
+        cout << "Erro ao abrir arquivo: " << caminho << endl;
+        return;
+    }
+
+    int actual_line = 1;
+    while (getline(inputFile, line))
+    {
+        switch (actual_line)
+        {
+        case 2:
+            nome = line;
+            break;
+        case 5:
+            habilidade = stoi(line);
+            break;
+        case 6:
+            energia = stoi(line);
+            break;
+        case 7:
+            sorte = stoi(line);
+            break;
+        case 10:
+            quantidade_itens = stoi(line);
+            break;
+        case 11:
+            if (quantidade_itens > 0)
+            {
+                string texto = "";
+                for (char c : line)
+                {
+                    if (c == ' ')
+                    {
+                        itens_nao_formatado.push_back(texto);
+                        texto = "";
+                    }
+                    else
+                    {
+                        texto += c;
+                    }
+                }
+            }
+
+            break;
+        case 14:
+            cena_atual = stoi(line);
+            break;
+        case 17:
+            quantidade_cenas = stoi(line);
+            break;
+        case 18:
+            if (quantidade_cenas > 0)
+            {
+                string texto = "";
+                for (char c : line)
+                {
+                    if (c == ' ')
+                    {
+                        cenas.push_back(stoi(texto));
+                        texto = "";
+                    }
+                    else
+                    {
+                        texto += c;
+                    }
+                }
+            }
+            break;
+        case 21:
+            tipo_personagem = line;
+            break;
+        }
+
+        actual_line++;
     }
 
     inputFile.close();
+
+    // processa os itens
+    if (quantidade_itens > 0)
+    {
+        for (int i = 0; i < quantidade_itens * 3; i += 3)
+        {
+            string nome = itens_nao_formatado[i];
+            int dano = stoi(itens_nao_formatado[i + 1]);
+            TipoItem tipo = fromStringToTipoItem(itens_nao_formatado[i + 2]);
+
+            Item item(nome, dano, tipo);
+            itens.push_back(item);
+        }
+    }
+
+    if (tipo_personagem == "lutador")
+    {
+        cout << "Criando lutador " << endl;
+        personagem_ = new Lutador(nome, habilidade, energia, sorte, itens);
+    }
+    // TODO: Ajeitar
+    // else if (tipo_personagem == "mago")
+    // {
+    //     personagem_ = new Mago(nome, habilidade, energia, sorte, itens);
+    // }
+    else
+    {
+        personagem_ = new Lutador(nome, habilidade, energia, sorte, itens);
+    }
+
+    // aplica estado antes de ler a cena
+    cena = cena_atual;
+    cenas_visitadas = cenas;
+
+    cout << "carregando..." << endl;
+    lerCena();
 }
 
+TipoItem Jogo::fromStringToTipoItem(string str)
+{
+    if (str == "Espada")
+        return Espada;
+    if (str == "Cajado")
+        return Cajado;
+    if (str == "Armadura")
+        return Armadura;
+    return Espada;
+}
+
+//TODO:tem que testar
 void Jogo::iniciarBatalha(Monstro& monstro) {
     cout << "\n=== INÍCIO DA BATALHA ===\n";
     monstro.mostrarInfo();
@@ -376,5 +536,3 @@ void Jogo::iniciarBatalha(Monstro& monstro) {
     cin.ignore();
     cin.get();
 }
-
-

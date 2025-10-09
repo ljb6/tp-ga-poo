@@ -6,11 +6,12 @@
 
 using namespace std;
 
-class Lutador: public Personagem {
+class Lutador : public Personagem
+{
 public:
     Lutador();
+    Lutador(const string &nome, int habilidade, int energia, int sorte, const vector<Item> &itens);
     ~Lutador();
-
 };
 
 #endif // TA_POO_LUTADOR_H

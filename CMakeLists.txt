@@ -18,4 +18,6 @@ add_executable(TA_POO main.cpp
         Mago.h
         Item.cpp
         Item.h
+        Monstro.cpp
+        Monstro.h
 )

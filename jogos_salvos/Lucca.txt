@@ -1,21 +1,21 @@
 nome
-l
+Lucca
 
 atributos
-12
 6
 12
+6
 
 itens
 1
+Espada_Longa 5 espada 
 
-Espada Longa
-5
-espada
 cena_atual
-2
+8
 
 cenas_visitadas
-1
 2
+1 4 
 
+tipo_personagem
+lutador
