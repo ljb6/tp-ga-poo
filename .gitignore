@@ -1,0 +1,28 @@
+# Build artifacts
+/build/
+/CMakeFiles/
+/CMakeCache.txt
+/compile_commands.json
+/Makefile
+/build/
+
+# Executables
+/programa
+/programa.exe
+/*.out
+/*.exe
+*.o
+*.obj
+
+# VSCode settings and user files
+.vscode/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Ignore temporary files
+*~
+*.swp

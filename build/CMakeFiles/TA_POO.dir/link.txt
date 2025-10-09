@@ -1,1 +1,0 @@
-/usr/bin/g++ -g CMakeFiles/TA_POO.dir/main.cpp.o CMakeFiles/TA_POO.dir/Tela.cpp.o CMakeFiles/TA_POO.dir/Personagem.cpp.o CMakeFiles/TA_POO.dir/Inventario.cpp.o CMakeFiles/TA_POO.dir/Lutador.cpp.o CMakeFiles/TA_POO.dir/Jogo.cpp.o CMakeFiles/TA_POO.dir/Mago.cpp.o CMakeFiles/TA_POO.dir/Item.cpp.o CMakeFiles/TA_POO.dir/Monstro.cpp.o -o TA_POO 
