@@ -49,7 +49,7 @@ Os saves ficam em `jogos_salvos/` e usam um formato por seções. As seções co
 ```
 
 Onde:
-- `<tipo>` é `w` (weapon), `r` (armor/rosto?) ou `c` (consumable) — siga o código do jogo para o mapa de tipos
+- `<tipo>` é `w` (weapon), `r` (armor) ou `c` (consumable) — siga o código do jogo para o mapa de tipos
 - `<combate>` é `1` se o item pode ser usado em combate, `0` caso contrário
 - `<FA>` é o bônus de fator de ação (FA) do item
 - `<dano>` é o dano base que o item causa (0 para armaduras ou consumíveis sem dano)
