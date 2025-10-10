@@ -21,20 +21,20 @@ public:
     int getSorte();
 
     void distribuirAtributos();
+    void distribuirAtributosAleatoriamente();
     void setarNome(string nome_);
     bool testarSorte();
     void mostrarInventario();
-    //int getQuantidadeItens();
     vector<vector<string>> getItens();
-        const Inventario& getInventario() const;
+    const Inventario& getInventario() const;
 
-        bool equiparItem(int index);
-        int getEquippedWeaponIndex() const;
-        int getEquippedArmorIndex() const;
-        int getEquippedWeaponFa() const;
-        int getEquippedArmorFa() const;
-        int getEquippedWeaponDano() const;
-        int getEquippedArmorProt() const;
+    bool equiparItem(int index);
+    int getEquippedWeaponIndex() const;
+    int getEquippedArmorIndex() const;
+    int getEquippedWeaponFa() const;
+    int getEquippedArmorFa() const;
+    int getEquippedWeaponDano() const;
+    int getEquippedArmorProt() const;
 
     void setEnergia(int energia_);
     void adicionarItem(Item item_);

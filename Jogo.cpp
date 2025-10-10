@@ -38,15 +38,30 @@ void Jogo::novoJogo()
     getline(cin >> ws, nome);
     if (nome.empty()) nome = "Hero";
     personagem_->setarNome(nome);
-    personagem_->distribuirAtributos();
+
+    int escolha;
+
+    while (true) {
+        cout << "Como você deseja distribuir os atributos do personagem?\n";
+        cout << "[1] - Manualmente\n";
+        cout << "[2] - Aleatoriamente\n> ";
+
+        cin >> escolha;
+
+        if (escolha == 1 || escolha == 2) break;
+    }
+
+    if (escolha == 1) personagem_->distribuirAtributos();
+    else personagem_->distribuirAtributosAleatoriamente();
+
     cena = 1;
     cenas_visitadas.clear();
-    lerCena();
+    lerCena(); 
 }
 
 void Jogo::setPersonagem()
 {
-    // stub — atualmente não utilizado
+    // atualmente não utilizado
 }
 
 void Jogo::lerCena()

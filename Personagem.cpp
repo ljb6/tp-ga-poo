@@ -1,4 +1,6 @@
 #include "Personagem.h"
+#include <cstdlib>
+#include <ctime>
 
 Personagem::Personagem()
 {
@@ -99,6 +101,24 @@ void Personagem::distribuirAtributos()
     // define a energia máxima com base no valor final de energia escolhido
     energia_maxima = energia;
 }
+
+void Personagem::distribuirAtributosAleatoriamente() {
+    cout << "Atributos gerados aleatoriamente!" << endl;
+
+    srand(time(0));
+
+    int h = rand() % 7;
+    habilidade = 6 + h;
+    int s = rand() % 7;
+    sorte = 6 + s;
+
+    energia = 24 - (h + s);
+
+    cout << "Habilidade: " << habilidade << "/12" << endl;
+    cout << "Energia: " << energia << "/24" << endl;
+    cout << "Sorte: " << sorte << "/12" << endl;
+}
+
 
 void Personagem::usarProvisao() {
     if (provisoes <= 0) {
