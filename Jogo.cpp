@@ -75,7 +75,7 @@ void Jogo::lerCena()
         if (std::find(cenas_visitadas.begin(), cenas_visitadas.end(), cena) == cenas_visitadas.end())
             cenas_visitadas.push_back(cena);
 
-        string caminho = "cenas/" + to_string(cena) + ".txt";
+        string caminho = "../cenas/" + to_string(cena) + ".txt";
         ifstream inputFile(caminho);
         if (!inputFile.is_open()) {
             cout << "Erro ao abrir a cena " << caminho << endl;
@@ -236,7 +236,7 @@ void Jogo::salvarJogo()
 
     if (!personagem_) return;
 
-    string caminho = "jogos_salvos/" + personagem_->getNome() + ".txt";
+    string caminho = "../jogos_salvos/" + personagem_->getNome() + ".txt";
     ofstream file(caminho);
     if (!file.is_open()) {
         cerr << "Erro ao salvar jogo em: " << caminho << endl;
@@ -298,7 +298,7 @@ void Jogo::salvarJogo()
 
 void Jogo::carregarJogo()
 {
-    string path = "jogos_salvos";
+    string path = "../jogos_salvos/";
 
     if (!fs::exists(path) || !fs::is_directory(path)) {
         cout << "Nenhum jogo salvo encontrado (diretório 'jogos_salvos' ausente)." << endl;
@@ -335,7 +335,7 @@ void Jogo::carregarJogo()
     }
 
     string line;
-    string caminho = "jogos_salvos/" + opcoes[selected] + ".txt";
+    string caminho = "../jogos_salvos/" + opcoes[selected] + ".txt";
     ifstream inputFile(caminho);
 
     string nome;
@@ -522,7 +522,7 @@ void Jogo::carregarJogo()
         cout << "Aviso: cena invalida no save (" << cena << "). Reiniciando para cena 1." << endl;
         cena = 1;
     }
-    string cena_path = string("cenas/") + to_string(cena) + ".txt";
+    string cena_path = string("../cenas/") + to_string(cena) + ".txt";
     if (!fs::exists(cena_path)) {
         cout << "Aviso: arquivo de cena não encontrado: " << cena_path << ". Reiniciando para cena 1." << endl;
         cena = 1;
