@@ -74,21 +74,9 @@ O loader é tolerante e suporta versões antigas do formato de item (apenas `nom
 
 Notas do desenvolvedor
 ---------------------
-- O código passou por refatorações para permitir salvamento/recuperação de equipamentos e suporte a itens com FA e dano.
-- Arquivos modificados de destaque: `Jogo.cpp`, `Personagem.*`, `Item.*`, `Inventario.*`, `Lutador.*`.
-- O projeto atualmente usa `rand()`/`srand()` para RNG; se você precisa de testes determinísticos, substitua por `std::mt19937` com semente fixa.
-- Sugestões de melhoria: usar `std::unique_ptr` para `personagem_`, adicionar testes automatizados e parametrize RNG para testes reprodutíveis.
 
 Executando um teste rápido (fluxo batalha)
 -----------------------------------------
 1. Compile e execute `./programa`.
 2. Crie um novo jogo (opção 1) e avance até uma cena com batalha.
 3. Durante a batalha, teste equipar itens no inventário para ver os efeitos de FA e dano.
-
-Commit e push
---------------
-Se você quiser que eu commite e faça push deste README, responda "commit e push" e eu farei isso automaticamente.
-
-Licença
--------
-Sem licença especificada.
