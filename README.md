@@ -68,10 +68,6 @@ A seção `equipamento` contém dois índices (arma e armadura) apontando para i
 0;1
 ```
 
-Compatibilidade
----------------
-O loader é tolerante e suporta versões antigas do formato de item (apenas `nome;tipo`), mapeando valores faltantes para padrões.
-
 Notas do desenvolvedor
 ---------------------
 
