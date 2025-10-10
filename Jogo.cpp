@@ -325,7 +325,7 @@ void Jogo::salvarJogo()
     for (auto c : cenas_visitadas) file << to_string(c) << " ";
     file << endl << endl;
 
-    file << "tipo_personagem\n";
+    file << "tipo_personagem\n\n";
     if (dynamic_cast<Lutador *>(personagem_)) file << "lutador";
     else if (dynamic_cast<Mago *>(personagem_)) file << "mago";
 
