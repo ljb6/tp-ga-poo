@@ -56,7 +56,7 @@ void Jogo::novoJogo()
 
     cena = 1;
     cenas_visitadas.clear();
-    lerCena(); 
+    lerCena();
 }
 
 void Jogo::setPersonagem()
@@ -340,7 +340,7 @@ void Jogo::salvarJogo()
 
 void Jogo::carregarJogo()
 {
-    string path = "jogos_salvos";
+    string path = "../jogos_salvos";
 
     if (!fs::exists(path) || !fs::is_directory(path)) {
         cout << "Nenhum jogo salvo encontrado (diretório 'jogos_salvos' ausente)." << endl;

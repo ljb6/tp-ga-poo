@@ -45,7 +45,6 @@ void Tela::mostrarAbertura() {
             break;
         case 4:
             exit(0);
-            break;
         default:
             cout << "Digite uma opção válida!" << endl;
             mostrarAbertura();
