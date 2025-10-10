@@ -20,7 +20,7 @@ public:
     void adicionarItem(Item item_);
     vector<vector<string>> getItens();
     const vector<Item>& getItemObjects() const;
-    //void removerItem();
+    // possível função futura: remover item do inventário
 
 private:
     vector<Item> itens;

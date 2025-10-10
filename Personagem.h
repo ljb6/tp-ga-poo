@@ -47,13 +47,14 @@ public:
 
     void usarProvisao();
     int getEnergiaMaxima();
+    void setEnergiaMaxima(int energia_maxima_);
 
 private:
     string nome;
     int habilidade = 6;
     int energia = 12;
     int sorte = 6;
-        // equipamento: índices no inventário (-1 = nenhum)
+        // índices de equipamento no inventário (-1 = nenhum)
         int equippedWeaponIndex = -1;
         int equippedArmorIndex = -1;
 

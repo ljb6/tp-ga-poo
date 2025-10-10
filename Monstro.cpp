@@ -1,5 +1,6 @@
 //
-// Created by Ândrio Epping on 07/10/25.
+// Arquivo criado por Ândrio Epping em 07/10/25.
+// Implementação da classe Monstro: atributos, comportamento e drops.
 //
 
 #include "Monstro.h"

@@ -13,7 +13,7 @@ public:
     Monstro(string nome_, int habilidade_, int sorte_, int energia_);
     ~Monstro();
 
-    // Getters
+    // Métodos acessores (getters)
     string getNome();
     int getHabilidade();
     int getSorte();
@@ -22,7 +22,7 @@ public:
     int getProvisoes();
     Item getItem();
 
-    // Setters
+    // Métodos modificadores (setters)
     void setNome(string nome_);
     void setHabilidade(int habilidade_);
     void setSorte(int sorte_);

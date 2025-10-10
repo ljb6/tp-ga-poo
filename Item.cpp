@@ -1,5 +1,6 @@
 //
-// Created by Lucca Jaroszeski Becker on 12/09/25.
+// Arquivo criado por Lucca Jaroszeski Becker em 12/09/25.
+// Representação dos itens do jogo (armas, armaduras, cajados) e utilitários.
 //
 
 #include "Item.h"

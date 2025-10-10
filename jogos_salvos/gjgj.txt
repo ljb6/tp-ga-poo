@@ -1,0 +1,31 @@
+nome
+gjgj
+
+atributos
+6
+7
+7
+energia_maxima
+19
+
+itens
+3
+Espada_Longa;w;1;2;5 Couraça;r;1;1;0 Presa_Serrilhada;w;1;0;1 
+
+provisoes
+0
+
+tesouro
+8
+
+cena_atual
+7
+
+cenas_visitadas
+4
+1 2 5 7 
+
+tipo_personagem
+lutador
+equipamento
+0 1
