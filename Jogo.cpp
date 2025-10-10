@@ -377,7 +377,7 @@ void Jogo::carregarJogo()
     }
 
     string line;
-    string caminho = "jogos_salvos/" + opcoes[selected] + ".txt";
+    string caminho = "../jogos_salvos/" + opcoes[selected] + ".txt";
     ifstream inputFile(caminho);
 
     string nome;
