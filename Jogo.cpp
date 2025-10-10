@@ -276,11 +276,11 @@ bool Jogo::verificarCena(int cena_)
 void Jogo::salvarJogo()
 {
     // garante que o diretório exista
-    fs::create_directories("jogos_salvos");
+    fs::create_directories("../jogos_salvos");
 
     if (!personagem_) return;
 
-    string caminho = "jogos_salvos/" + personagem_->getNome() + ".txt";
+    string caminho = "../jogos_salvos/" + personagem_->getNome() + ".txt";
     ofstream file(caminho);
     if (!file.is_open()) {
         cerr << "Erro ao salvar jogo em: " << caminho << endl;
