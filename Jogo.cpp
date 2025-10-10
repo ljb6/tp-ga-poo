@@ -59,7 +59,7 @@ void Jogo::lerCena()
         if (std::find(cenas_visitadas.begin(), cenas_visitadas.end(), cena) == cenas_visitadas.end())
             cenas_visitadas.push_back(cena);
 
-        string caminho = "cenas/" + to_string(cena) + ".txt";
+        string caminho = "../cenas/" + to_string(cena) + ".txt";
         ifstream inputFile(caminho);
         if (!inputFile.is_open()) {
             cout << "Erro ao abrir a cena " << caminho << endl;
@@ -579,7 +579,7 @@ void Jogo::carregarJogo()
         cout << "Aviso: cena invalida no save (" << cena << "). Reiniciando para cena 1." << endl;
         cena = 1;
     }
-    string cena_path = string("cenas/") + to_string(cena) + ".txt";
+    string cena_path = string("../cenas/") + to_string(cena) + ".txt";
     if (!fs::exists(cena_path)) {
         cout << "Aviso: arquivo de cena não encontrado: " << cena_path << ". Reiniciando para cena 1." << endl;
         cena = 1;
