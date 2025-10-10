@@ -1,0 +1,29 @@
+nome
+Lucca
+
+atributos
+7
+20
+9
+
+itens
+2
+Espada_Longa;w;1;2;5 Couraça;r;1;1;0 
+
+provisoes
+0
+
+tesouro
+0
+
+cena_atual
+1
+
+cenas_visitadas
+0
+
+
+tipo_personagem
+
+lutadorequipamento
+-1 -1

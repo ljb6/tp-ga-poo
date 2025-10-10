@@ -12,7 +12,9 @@ Tela::~Tela() {
 }
 
 void Tela::exibirCreditos() {
-    cout << "Desenvolvido por: Lucca J. Becker" << endl;
+    cout << "==================================================\n";
+    cout << "Desenvolvido por: Andrio Epping e Lucca J. Becker." << endl;
+    cout << "==================================================\n";
     mostrarAbertura();
 }
 
