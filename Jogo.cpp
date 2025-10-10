@@ -261,6 +261,8 @@ void Jogo::lerCena()
             }
         }
 
+        cout << "============================================================================================================================================" << endl;
+
         // mostrar cena normal
         if (!firstLine.empty())
         {
@@ -274,6 +276,9 @@ void Jogo::lerCena()
             else
                 cout << firstLine << endl;
         }
+        cout << "============================================================================================================================================" << endl;
+        cout << "Escolha uma opção:\n";
+
         for (size_t i = 0; i < lines.size(); ++i)
         {
             // já mostramos a primeira significativa; mostrar o restante
@@ -285,10 +290,11 @@ void Jogo::lerCena()
         // menu de opções na cena
         while (true)
         {
-            cout << "Escolha uma opção:\n";
+
             cout << "[0] - Sair do jogo (salvar)\n";
             cout << "[-1] - Ver inventário\n";
             cout << "[-2] - Usar provisão (+4 energia)\n";
+            cout << "============================================================================================================================================" << endl;
             cout << "> ";
 
             string entrada;
