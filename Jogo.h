@@ -1,5 +1,6 @@
 //
-// Created by Lucca Jaroszeski Becker on 10/09/25.
+// Arquivo criado por Lucca Jaroszeski Becker em 10/09/25.
+// Declaração da classe do jogo e APIs públicas para manipular salvamentos e cenas.
 //
 
 #ifndef TA_POO_JOGO_H
@@ -9,7 +10,7 @@
 #include <iostream>
 #include <string>
 
-// forward declaration
+// declaração antecipada (forward declaration) de classe usada nas assinaturas
 class Monstro;
 
 using namespace std;

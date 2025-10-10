@@ -1,0 +1,29 @@
+nome
+lucas
+
+atributos
+11
+4
+9
+
+itens
+4
+Espada_Longa;w;1;2;5 Couraça;r;1;1;0 Presa_Serrilhada;w;1;0;1 Couraça_Fendida;r;1;0;0 
+
+provisoes
+0
+
+tesouro
+5
+
+cena_atual
+9
+
+cenas_visitadas
+6
+1 2 5 7 8 9 
+
+tipo_personagem
+lutador
+equipamento
+0 -1

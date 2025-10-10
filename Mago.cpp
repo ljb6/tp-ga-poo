@@ -1,5 +1,6 @@
 //
-// Created by Lucca Jaroszeski Becker on 12/09/25.
+// Arquivo criado por Lucca Jaroszeski Becker em 12/09/25.
+// Implementação do Mago e itens iniciais.
 //
 
 #include "Mago.h"

@@ -1,5 +1,6 @@
 //
-// Created by Lucca Jaroszeski Becker on 07/09/25.
+// Arquivo criado por Lucca Jaroszeski Becker em 07/09/25.
+// Implementação da classe Lutador e itens iniciais padrões.
 //
 
 #include "Lutador.h"

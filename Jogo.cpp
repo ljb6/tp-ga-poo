@@ -1,5 +1,6 @@
 //
-// Created by Lucca Jaroszeski Becker on 10/09/25.
+// Arquivo criado por Lucca Jaroszeski Becker e Ândrio em 10/09/25.
+// Contém a lógica principal do jogo: fluxo de cenas, batalhas e persistência.
 //
 #include <fstream>
 #include <iostream>
@@ -74,7 +75,7 @@ void Jogo::lerCena()
         if (std::find(cenas_visitadas.begin(), cenas_visitadas.end(), cena) == cenas_visitadas.end())
             cenas_visitadas.push_back(cena);
 
-        string caminho = "../cenas/" + to_string(cena) + ".txt";
+        string caminho = "cenas/" + to_string(cena) + ".txt";
         ifstream inputFile(caminho);
         if (!inputFile.is_open()) {
             cout << "Erro ao abrir a cena " << caminho << endl;
@@ -218,51 +219,6 @@ void Jogo::lerCena()
 
 // (construtor/destrutor/novoJogo já implementados no topo do arquivo)
 
-// void Jogo::lerCena()
-// {
-//     salvarJogo();
-//     cenas_visitadas.push_back(cena);
-
-//     string caminho = "../cenas/" + to_string(cena) + ".txt";
-
-//     ifstream inputFile(caminho);
-
-//     string line;
-
-//     if (!inputFile.is_open()) {
-//     cout << "Erro: não foi possível abrir o arquivo " << caminho << endl;
-//     return;
-//     }
-
-//     while (getline(inputFile, line))
-//     {
-//         if (line[0] == '#')
-//         {
-//             cout << "[" << line.substr(1, 2) << "] - " << line.substr(4, line.length() - 1) << endl;
-//         }
-//         else
-//         {
-//             cout << line << endl;
-//         }
-//     }
-
-//     inputFile.close();
-
-//     cout << "Escolha uma opção:\n> ";
-//     int opcao;
-//     cin >> opcao;
-
-//     bool proximaCenaValida = verificarCena(opcao);
-//     if (!proximaCenaValida)
-//     {
-//         cout << "Você já passou por essa cena, escolha uma cena válida!" << endl;
-//         lerCena();
-//     }
-
-//     cena = opcao;
-//     lerCena();
-// }
-
 bool Jogo::verificarCena(int cena_)
 {
     for (auto it = cenas_visitadas.begin(); it != cenas_visitadas.end(); ++it)
@@ -276,11 +232,11 @@ bool Jogo::verificarCena(int cena_)
 void Jogo::salvarJogo()
 {
     // garante que o diretório exista
-    fs::create_directories("../jogos_salvos");
+    fs::create_directories("jogos_salvos");
 
     if (!personagem_) return;
 
-    string caminho = "../jogos_salvos/" + personagem_->getNome() + ".txt";
+    string caminho = "jogos_salvos/" + personagem_->getNome() + ".txt";
     ofstream file(caminho);
     if (!file.is_open()) {
         cerr << "Erro ao salvar jogo em: " << caminho << endl;
@@ -292,8 +248,10 @@ void Jogo::salvarJogo()
 
     file << "atributos\n";
     file << to_string(personagem_->getHabilidade()) << endl;
-    file << to_string(personagem_->getEnergia()) << endl;
-    file << to_string(personagem_->getSorte()) << "\n\n";
+    file << to_string(personagem_->getEnergia()) << endl; // energia atual
+    file << to_string(personagem_->getSorte()) << endl;
+    file << "energia_maxima\n";
+    file << to_string(personagem_->getEnergiaMaxima()) << "\n\n";
 
     file << "itens\n";
     file << to_string(personagem_->getQuantidadeItens()) << endl;
@@ -325,9 +283,9 @@ void Jogo::salvarJogo()
     for (auto c : cenas_visitadas) file << to_string(c) << " ";
     file << endl << endl;
 
-    file << "tipo_personagem\n\n";
-    if (dynamic_cast<Lutador *>(personagem_)) file << "lutador";
-    else if (dynamic_cast<Mago *>(personagem_)) file << "mago";
+    file << "tipo_personagem\n";
+    if (dynamic_cast<Lutador *>(personagem_)) file << "lutador" << "\n";
+    else if (dynamic_cast<Mago *>(personagem_)) file << "mago" << "\n";
 
     // equipamento: índices dos itens equipados (weaponIndex armorIndex), -1 se nenhum
     file << "equipamento\n";
@@ -340,7 +298,7 @@ void Jogo::salvarJogo()
 
 void Jogo::carregarJogo()
 {
-    string path = "../jogos_salvos";
+    string path = "jogos_salvos";
 
     if (!fs::exists(path) || !fs::is_directory(path)) {
         cout << "Nenhum jogo salvo encontrado (diretório 'jogos_salvos' ausente)." << endl;
@@ -377,15 +335,15 @@ void Jogo::carregarJogo()
     }
 
     string line;
-    string caminho = "../jogos_salvos/" + opcoes[selected] + ".txt";
+    string caminho = "jogos_salvos/" + opcoes[selected] + ".txt";
     ifstream inputFile(caminho);
 
     string nome;
 
     int sorte, energia, habilidade;
+    int energia_maxima_loaded = 0;
 
     int quantidade_itens = 0;
-    vector<string> itens_nao_formatado;
     vector<Item> itens;
 
     int quantidade_cenas = 0;
@@ -452,49 +410,23 @@ void Jogo::carregarJogo()
                         }
                         if (!token.empty()) tokens.push_back(token);
 
-                        // agora processa tokens procurando padrões.
-                        // Suporta formato estendido por ';' (nome_sem_espacos;tipo;combate;FA;dano) ou formato legado nome dano tipo
-                        // Primeiro, verifica se há ';' nos tokens (formato novo)
-                        bool any_semicolon = false;
-                        for (const auto &tk : tokens) if (tk.find(';') != string::npos) { any_semicolon = true; break; }
-                        if (any_semicolon) {
-                            for (const auto &tk : tokens) {
-                                if (tk.find(';') == string::npos) continue;
-                                vector<string> parts; string tmp; stringstream sst(tk);
-                                while (getline(sst, tmp, ';')) parts.push_back(tmp);
-                                if (parts.size() >= 5) {
-                                    // nome: reverte '_' para espaços
-                                    string nome_item = parts[0]; for (auto &c : nome_item) if (c == '_') c = ' ';
-                                    string tipo_code = parts[1];
-                                    bool combate_flag = (parts[2] == "1");
-                                    int fa_v = 0; try { fa_v = stoi(parts[3]); } catch(...) {}
-                                    int dano_v = 0; try { dano_v = stoi(parts[4]); } catch(...) {}
-                                    // cria item com todos os campos
-                                    TipoItem tipo = Espada;
-                                    if (tipo_code == "r") tipo = Armadura;
-                                    else if (tipo_code == "w") tipo = Espada; // arma
-                                    else tipo = Cajado;
-                                    Item it(nome_item, dano_v, tipo, combate_flag, fa_v);
-                                    itens.push_back(it);
-                                }
-                            }
-                        } else {
-                            // formato antigo: nome dano tipo (tokens may contain name with spaces)
-                            size_t idx = 0;
-                            while (idx < tokens.size()) {
-                                // procura próximo token que seja número (dano)
-                                size_t j = idx;
-                                while (j < tokens.size() && !is_number(tokens[j])) j++;
-                                if (j >= tokens.size() || j + 1 >= tokens.size()) break; // formato inesperado
-                                // nome é a junção de tokens[idx..j-1]
-                                string nome_item = tokens[idx];
-                                for (size_t k = idx + 1; k < j; ++k) nome_item += string(" ") + tokens[k];
-                                string dano_s = tokens[j];
-                                string tipo_s = tokens[j+1];
-                                itens_nao_formatado.push_back(nome_item);
-                                itens_nao_formatado.push_back(dano_s);
-                                itens_nao_formatado.push_back(tipo_s);
-                                idx = j + 2;
+                        // processa tokens no formato: nome_sem_espacos;tipo;combate;FA;dano
+                        for (const auto &tk : tokens) {
+                            if (tk.find(';') == string::npos) continue;
+                            vector<string> parts; string tmp; stringstream sst(tk);
+                            while (getline(sst, tmp, ';')) parts.push_back(tmp);
+                            if (parts.size() >= 5) {
+                                string nome_item = parts[0]; for (auto &c : nome_item) if (c == '_') c = ' ';
+                                string tipo_code = parts[1];
+                                bool combate_flag = (parts[2] == "1");
+                                int fa_v = 0; try { fa_v = stoi(parts[3]); } catch(...) {}
+                                int dano_v = 0; try { dano_v = stoi(parts[4]); } catch(...) {}
+                                TipoItem tipo = Espada;
+                                if (tipo_code == "r") tipo = Armadura;
+                                else if (tipo_code == "w") tipo = Espada;
+                                else tipo = Cajado;
+                                Item it(nome_item, dano_v, tipo, combate_flag, fa_v);
+                                itens.push_back(it);
                             }
                         }
                     }
@@ -508,9 +440,17 @@ void Jogo::carregarJogo()
             if (getline(inputFile, line)) {
                 // opcionalmente ignorar
             }
+        } else if (l == "energia_maxima") {
+            if (getline(inputFile, line)) {
+                try { energia_maxima_loaded = stoi(line); } catch(...) { energia_maxima_loaded = 0; }
+            }
         } else if (l == "cena_atual") {
             if (getline(inputFile, line)) {
                 try { cena_atual = stoi(line); } catch(...) { cena_atual = 1; }
+            }
+        } else if (l == "energia_maxima") {
+            if (getline(inputFile, line)) {
+                try { /* we'll read and apply later */ } catch(...) {}
             }
         } else if (l == "cenas_visitadas") {
             if (getline(inputFile, line)) {
@@ -541,35 +481,14 @@ void Jogo::carregarJogo()
 
     inputFile.close();
 
-    // processa os itens de forma defensiva (formato legado)
-    if (!itens_nao_formatado.empty())
-    {
-        size_t triples = itens_nao_formatado.size() / 3;
-        for (size_t t = 0; t < triples; ++t)
-        {
-            size_t i = t * 3;
-            string nome = itens_nao_formatado[i];
-            int dano = 0;
-            try {
-                dano = stoi(itens_nao_formatado[i + 1]);
-            } catch (...) {
-                // token inválido, pula este item
-                cerr << "Aviso: dano inválido para item '" << nome << "': '" << itens_nao_formatado[i+1] << "' - pulando\n";
-                continue;
-            }
-            TipoItem tipo = fromStringToTipoItem(itens_nao_formatado[i + 2]);
-
-            Item item(nome, dano, tipo, false, 0);
-            itens.push_back(item);
-        }
-    }
+    // não há suporte a formato legado; itens já estão preenchidos a partir do formato esperado
 
     if (tipo_personagem == "lutador")
     {
         cout << "Criando lutador " << endl;
         personagem_ = new Lutador(nome, habilidade, energia, sorte, itens);
     }
-    // TODO: Ajeitar
+    // Observação: suporte a outros tipos de personagem (ex.: Mago) pode ser adicionado aqui
     // else if (tipo_personagem == "mago")
     // {
     //     personagem_ = new Mago(nome, habilidade, energia, sorte, itens);
@@ -585,6 +504,15 @@ void Jogo::carregarJogo()
 
     // aplica equipamento salvo (indices)
     if (personagem_) {
+        // se carregamos energia_maxima do arquivo, aplicamos sem sobrepor a energia atual
+        if (energia_maxima_loaded > 0) {
+            personagem_->setEnergiaMaxima(energia_maxima_loaded);
+        }
+        // se energia atual for inválida (<=0), restaurar para pelo menos 1 ou para energia_maxima
+        if (personagem_->getEnergia() <= 0) {
+            int fallback = personagem_->getEnergiaMaxima() > 0 ? personagem_->getEnergiaMaxima() : 12;
+            personagem_->setEnergia(fallback);
+        }
         if (loaded_equipped_weapon >= 0) personagem_->equiparItem(loaded_equipped_weapon);
         if (loaded_equipped_armor >= 0) personagem_->equiparItem(loaded_equipped_armor);
     }
@@ -594,7 +522,7 @@ void Jogo::carregarJogo()
         cout << "Aviso: cena invalida no save (" << cena << "). Reiniciando para cena 1." << endl;
         cena = 1;
     }
-    string cena_path = string("../cenas/") + to_string(cena) + ".txt";
+    string cena_path = string("cenas/") + to_string(cena) + ".txt";
     if (!fs::exists(cena_path)) {
         cout << "Aviso: arquivo de cena não encontrado: " << cena_path << ". Reiniciando para cena 1." << endl;
         cena = 1;
@@ -615,7 +543,7 @@ TipoItem Jogo::fromStringToTipoItem(string str)
     return Espada;
 }
 
-//TODO:tem que testar
+// Observação: rotina de batalha precisa de testes manuais automatizáveis — cobertura recomendada
 void Jogo::iniciarBatalha(Monstro& monstro) {
     Tela::limpar();
     cout << "\n=== INÍCIO DA BATALHA ===\n";

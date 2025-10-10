@@ -1,5 +1,6 @@
 //
-// Created by Lucca Jaroszeski Becker on 12/09/25.
+// Arquivo criado por Lucca Jaroszeski Becker em 12/09/25.
+// Definição da classe Mago (subclasse de Personagem) e itens iniciais.
 //
 
 #ifndef TA_POO_MAGO_H

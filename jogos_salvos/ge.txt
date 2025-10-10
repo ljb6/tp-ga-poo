@@ -1,0 +1,29 @@
+nome
+ge
+
+atributos
+10
+15
+6
+
+itens
+3
+Espada_Longa;w;1;2;5 Couraça;r;1;1;0 Presa_Serrilhada;w;1;0;1 
+
+provisoes
+0
+
+tesouro
+0
+
+cena_atual
+7
+
+cenas_visitadas
+6
+1 2 5 8 13 7 
+
+tipo_personagem
+lutador
+equipamento
+2 1

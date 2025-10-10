@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <ctime>
 
+// Implementação de comportamento comum a todos os personagens
 Personagem::Personagem()
 {
 }
@@ -117,7 +118,10 @@ void Personagem::distribuirAtributosAleatoriamente() {
     cout << "Habilidade: " << habilidade << "/12" << endl;
     cout << "Energia: " << energia << "/24" << endl;
     cout << "Sorte: " << sorte << "/12" << endl;
+    // define energia máxima baseada na energia gerada aleatoriamente
+    energia_maxima = energia;
 }
+
 
 
 void Personagem::usarProvisao() {
@@ -138,7 +142,7 @@ bool Personagem::testarSorte() {
         return false;
     }
     int valor_sorte = sorte;
-    int roll = (rand() % 12) + 1; // 1..12
+    int roll = (rand() % 12) + 1; // valor de 1 a 12
     bool sucesso = (roll <= valor_sorte);
     // decrementa sorte sempre que for usada
     sorte = max(0, sorte - 1);
@@ -186,7 +190,12 @@ void Personagem::adicionarProvisoes(int quantidade) {
 
 void Personagem::setEnergia(int energia_)
 {
-    energia = energia_;
+    // não permita que a energia atual exceda a energia máxima
+    if (energia_maxima > 0) {
+        energia = std::min(energia_, energia_maxima);
+    } else {
+        energia = energia_;
+    }
 }
 
 void Personagem::adicionarItem(Item item_)
@@ -206,6 +215,13 @@ int Personagem::getProvisoes()
 
 int Personagem::getEnergiaMaxima(){
     return energia_maxima;
+}
+
+void Personagem::setEnergiaMaxima(int energia_maxima_)
+{
+    energia_maxima = energia_maxima_;
+    // ensure current energy does not exceed new maximum
+    if (energia_maxima > 0 && energia > energia_maxima) energia = energia_maxima;
 }
 
 const Inventario& Personagem::getInventario() const {

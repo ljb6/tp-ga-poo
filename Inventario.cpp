@@ -1,5 +1,6 @@
 //
-// Created by Lucca Jaroszeski Becker on 07/09/25.
+// Arquivo criado por Lucca Jaroszeski Becker em 07/09/25.
+// Implementação do inventário: armazenamento e exibição dos itens do personagem.
 //
 
 #include "Inventario.h"
@@ -57,8 +58,8 @@ void Inventario::mostrarInventario(int equippedWeaponIndex, int equippedArmorInd
     for (size_t idx = 0; idx < itens.size(); ++idx) {
         const auto &i = itens[idx];
         cout << "  [" << idx << "] - " << i.getNome();
-        if ((int)idx == equippedWeaponIndex) cout << " (equipped weapon)";
-        if ((int)idx == equippedArmorIndex) cout << " (equipped armor)";
+    if ((int)idx == equippedWeaponIndex) cout << " (arma equipada)";
+    if ((int)idx == equippedArmorIndex) cout << " (armadura equipada)";
         cout << " | Tipo: " << i.getTipo() << " | Usavel em combate: " << (i.isUsavelEmCombate() ? "Sim" : "Nao");
         cout << " | FA: " << i.getFaBonus() << " | Dano/Prot: " << i.getDano() << endl;
     }
