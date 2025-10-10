@@ -15,6 +15,15 @@ Mago::Mago() : Personagem() {
     }
 }
 
+Mago::Mago(const string &nome, int habilidade, int energia, int sorte, const vector<Item> &itens)
+    : Personagem(nome, habilidade, energia, sorte)
+{
+    for (const auto &i : itens)
+    {
+        inventario_.adicionarItem(i);
+    }
+}
+
 Mago::~Mago() {}
 
 

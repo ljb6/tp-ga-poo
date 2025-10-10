@@ -16,6 +16,7 @@ using namespace std;
 class Mago: public Personagem {
 public:
     Mago();
+    Mago(const string &nome, int habilidade, int energia, int sorte, const vector<Item> &itens);
     ~Mago();
 
 };

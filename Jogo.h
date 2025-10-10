@@ -25,8 +25,6 @@ public:
     void salvarJogo();
     void carregarJogo();
 
-    void setPersonagem();
-
     TipoItem fromStringToTipoItem(string str);
 
 private:
@@ -34,7 +32,7 @@ private:
 
     void lerCena();
     bool verificarCena(int cena_);
-    void iniciarBatalha(Monstro& monstro);
+    void iniciarBatalha(Monstro &monstro);
     vector<int> cenas_visitadas;
     int cena = 1;
 };
